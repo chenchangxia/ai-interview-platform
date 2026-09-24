@@ -1,0 +1,52 @@
+server:
+  port: 18080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB}?currentSchema=interview_async_demo
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  flyway:
+    enabled: true
+    default-schema: interview_async_demo
+    schemas: interview_async_demo
+    create-schemas: true
+  jpa:
+    properties:
+      hibernate:
+        default_schema: interview_async_demo
+  redis:
+    redisson:
+      config: |
+        singleServerConfig:
+          address: "redis://localhost:6379"
+          database: 1
+          connectionMinimumIdleSize: 2
+          connectionPoolSize: 16
+          subscriptionConnectionMinimumIdleSize: 1
+          subscriptionConnectionPoolSize: 4
+  ai:
+    vectorstore:
+      pgvector:
+        schema-name: interview_async_demo
+        table-name: vector_store
+
+app:
+  ai:
+    security:
+      api-key-encryption-key: isolated-demo-encryption-key-change-before-production
+      require-encryption-key: true
+    config-yaml-path: ${java.io.tmpdir}/interview-guide-async-demo/llm-providers.yml
+    config-env-path: ${java.io.tmpdir}/interview-guide-async-demo/llm-providers.env
+    providers:
+      dashscope:
+        api-key: isolated-demo-key-no-external-call
+  storage:
+    access-key: isolated-demo
+    secret-key: isolated-demo
+    bucket: interview-guide-async-demo
+    auto-create-bucket: false
+
+logging:
+  level:
+    interview.guide.common.async: INFO

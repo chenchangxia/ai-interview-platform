@@ -1,0 +1,38 @@
+# Gradle / Java build output
+.gradle/
+**/build/
+/app/bin/
+
+# Frontend dependencies and build output
+/frontend/node_modules/
+/frontend/dist/
+/frontend/package-lock.json
+/frontend/test-results/
+/frontend/playwright-report/
+
+# Environment variables and runtime state
+.env
+.env.*
+!.env.example
+/logs/
+/runtime/
+/test-output.txt
+/app/src/main/resources/application-dev.yml
+
+# IDE / OS files
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db
+qodana.yaml
+
+# Local AI-assistant metadata
+/.agents/
+/.claude/
+/.playwright-mcp/
+AGENTS.md
+CLAUDE.md
+CLAUDE.local.md
+GEMINI.md
+SETUP_API_KEYS.md
+skills-lock.json

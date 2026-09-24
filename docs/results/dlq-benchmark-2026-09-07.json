@@ -1,0 +1,21 @@
+{
+  "requested": 100,
+  "dead_letter_captured": 100,
+  "dead_letter_capture_rate_percent": 100.0,
+  "replay_accepted": 100,
+  "completed_after_replay": 100,
+  "replay_recovery_rate_percent": 100.0,
+  "dead_letter_latency_ms": {
+    "p50": 17.43,
+    "p95": 35.18,
+    "max": 157.49
+  },
+  "replay_to_completion_latency_ms": {
+    "p50": 16.73,
+    "p95": 24.84,
+    "max": 41.15
+  },
+  "wall_time_seconds": 49.75,
+  "errors": [],
+  "notes": "Local isolated profile; synthetic Redis Stream failures; no external LLM calls."
+}
